@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {Lot} from "../models/Lot.ts";
 import {Customer} from "../models/Customer.ts";
 import {Button} from "@consta/uikit/Button";
@@ -148,77 +148,82 @@ const AddLot: React.FC = () => {
     };
 
     return (
-        <div style={{
-            textAlign: "center",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            marginTop: "20px"
-        }}>
-            <Text view="brand" size="2xl" weight="semibold" style={{marginBottom: '10px'}}>Add Lot</Text>
-            <form>
-                <div style={{marginBottom: '10px'}}>
-                    <TextField
-                        type="text"
-                        value={lot.lotName}
-                        onChange={handleFieldChange('lotName')}
-                        placeholder="Lot Name"
-                        style={{maxWidth: '300px'}}
+        <div>
+            <Link to={`/`}>
+                <Button label="Home" view="secondary" style={{marginBottom: "20px"}}/>
+            </Link>
+            <div style={{
+                textAlign: "center",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop: "20px"
+            }}>
+                <Text view="brand" size="2xl" weight="semibold" style={{marginBottom: '10px'}}>Add Lot</Text>
+                <form>
+                    <div style={{marginBottom: '10px'}}>
+                        <TextField
+                            type="text"
+                            value={lot.lotName}
+                            onChange={handleFieldChange('lotName')}
+                            placeholder="Lot Name"
+                            style={{maxWidth: '300px'}}
+                            withClearButton
+                        />
+                    </div>
+                    <div style={{marginBottom: '10px'}}>
+                        <Combobox
+                            placeholder="Customer Code"
+                            name="customerCode"
+                            items={items}
+                            value={value}
+                            onChange={handleFilterChange}
+                            style={{maxWidth: '300px'}}
+                        />
+                    </div>
+                    <div style={{marginBottom: '10px'}}>
+                        <TextField
+                            type="text"
+                            value={lot.price as string}
+                            onChange={handleFieldChange('price')}
+                            placeholder="Price"
+                            style={{maxWidth: '300px'}}
+                            withClearButton
+                        />
+                    </div>
+                    <div style={{marginBottom: '10px'}}>
+                        <Combobox
+                            placeholder="Currency Code"
+                            name="currencyCode"
+                            items={items1}
+                            value={value1}
+                            onChange={handleFilterChange1}
+                            style={{maxWidth: '300px'}}
+                        />
+                    </div>
+                    <div style={{marginBottom: '10px'}}>
+                        <Combobox
+                            placeholder="NDS Rate"
+                            name="ndsRate"
+                            items={items2}
+                            value={value2}
+                            onChange={handleFilterChange2}
+                            style={{maxWidth: '300px'}}
+                        />
+                    </div>
+                    <DatePicker
+                        placeholder="Date of Delivery"
+                        value={dateDelivery}
+                        onChange={handleDateChange}
                         withClearButton
+                        style={{marginBottom: '10px'}}
                     />
-                </div>
-                <div style={{marginBottom: '10px'}}>
-                    <Combobox
-                        placeholder="Customer Code"
-                        name="customerCode"
-                        items={items}
-                        value={value}
-                        onChange={handleFilterChange}
-                        style={{maxWidth: '300px'}}
-                    />
-                </div>
-                <div style={{marginBottom: '10px'}}>
-                    <TextField
-                        type="text"
-                        value={lot.price as string}
-                        onChange={handleFieldChange('price')}
-                        placeholder="Price"
-                        style={{maxWidth: '300px'}}
-                        withClearButton
-                    />
-                </div>
-                <div style={{marginBottom: '10px'}}>
-                    <Combobox
-                        placeholder="Currency Code"
-                        name="currencyCode"
-                        items={items1}
-                        value={value1}
-                        onChange={handleFilterChange1}
-                        style={{maxWidth: '300px'}}
-                    />
-                </div>
-                <div style={{marginBottom: '10px'}}>
-                    <Combobox
-                        placeholder="NDS Rate"
-                        name="ndsRate"
-                        items={items2}
-                        value={value2}
-                        onChange={handleFilterChange2}
-                        style={{maxWidth: '300px'}}
-                    />
-                </div>
-                <DatePicker
-                    placeholder="Date of Delivery"
-                    value={dateDelivery}
-                    onChange={handleDateChange}
-                    withClearButton
-                    style={{marginBottom: '10px'}}
-                />
-                <div style={{marginBottom: '10px'}}>
-                    <Button label="Save" view="primary" onClick={handleSave}/>
-                </div>
-            </form>
+                    <div style={{marginBottom: '10px'}}>
+                        <Button label="Save" view="primary" onClick={handleSave}/>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 };

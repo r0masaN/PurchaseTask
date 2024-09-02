@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {useParams, useNavigate} from "react-router-dom";
+import {useParams, useNavigate, Link} from "react-router-dom";
 import {Lot} from "../models/Lot";
 import {Customer} from "../models/Customer";
 import {Button} from "@consta/uikit/Button";
@@ -179,85 +179,91 @@ const EditLot: React.FC = () => {
     }
 
     return (
-        <div style={{
-            textAlign: "center",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            marginTop: "20px"
-        }}>
-            <Text view="brand" size="2xl" weight="semibold" style={{marginBottom: '10px'}}>Edit Lot</Text>
-            <form>
-                <div style={{marginBottom: '10px'}}>
-                    <TextField
-                        type="text"
-                        value={lot.lotName}
-                        onChange={handleFieldChange('lotName')}
-                        placeholder="Lot Name"
-                        style={{maxWidth: '300px'}}
-                        withClearButton
-                    />
-                </div>
-                <div style={{marginBottom: '10px'}}>
-                    <Combobox
-                        placeholder="Customer Code"
-                        name="customerCode"
-                        items={items}
-                        value={value}
-                        onChange={handleFilterChange}
-                        style={{maxWidth: '300px'}}
-                    />
-                </div>
-                <div style={{marginBottom: '10px'}}>
-                    <TextField
-                        type="text"
-                        value={lot.price as string}
-                        onChange={handleFieldChange('price')}
-                        placeholder="Price"
-                        style={{maxWidth: '300px'}}
-                        withClearButton
-                    />
-                </div>
-                <div style={{marginBottom: '10px'}}>
-                    <Combobox
-                        placeholder="Currency Code"
-                        name="currencyCode"
-                        items={items1}
-                        value={value1}
-                        onChange={handleFilterChange1}
-                        style={{maxWidth: '300px'}}
-                    />
-                </div>
-                <div style={{marginBottom: '10px'}}>
-                    <Combobox
-                        placeholder="NDS Rate"
-                        name="ndsRate"
-                        items={items2}
-                        value={value2}
-                        onChange={handleFilterChange2}
-                        style={{maxWidth: '300px'}}
-                    />
-                </div>
-                <DatePicker
-                    placeholder="Date of Delivery"
-                    value={dateDelivery}
-                    onChange={handleDateChange}
-                    withClearButton
-                    style={{marginBottom: '10px'}}
-                />
-                <div>
-                    <div style={{marginTop: '10px'}}>
-                        <Button label="Save" view="primary" form="round" onClick={handleSave}
-                                style={{marginRight: '20px'}}/>
-                        <Button label="Cancel" view="ghost" form="round" onClick={handleCancel}
-                                style={{marginRight: '20px'}}/>
-                        <Button label="Delete" view="primary" form="round" onClick={handleDelete}/>
+        <div>
+            <Link to={`/`}>
+                <Button label="Home" view="secondary" style={{marginBottom: "20px"}}/>
+            </Link>
+            <div style={{
+                textAlign: "center",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop: "20px"
+            }}>
+                <Text view="brand" size="2xl" weight="semibold" style={{marginBottom: '10px'}}>Edit Lot</Text>
+                <form>
+                    <div style={{marginBottom: '10px'}}>
+                        <TextField
+                            type="text"
+                            value={lot.lotName}
+                            onChange={handleFieldChange('lotName')}
+                            placeholder="Lot Name"
+                            style={{maxWidth: '300px'}}
+                            withClearButton
+                        />
                     </div>
-                </div>
-            </form>
+                    <div style={{marginBottom: '10px'}}>
+                        <Combobox
+                            placeholder="Customer Code"
+                            name="customerCode"
+                            items={items}
+                            value={value}
+                            onChange={handleFilterChange}
+                            style={{maxWidth: '300px'}}
+                        />
+                    </div>
+                    <div style={{marginBottom: '10px'}}>
+                        <TextField
+                            type="text"
+                            value={lot.price as string}
+                            onChange={handleFieldChange('price')}
+                            placeholder="Price"
+                            style={{maxWidth: '300px'}}
+                            withClearButton
+                        />
+                    </div>
+                    <div style={{marginBottom: '10px'}}>
+                        <Combobox
+                            placeholder="Currency Code"
+                            name="currencyCode"
+                            items={items1}
+                            value={value1}
+                            onChange={handleFilterChange1}
+                            style={{maxWidth: '300px'}}
+                        />
+                    </div>
+                    <div style={{marginBottom: '10px'}}>
+                        <Combobox
+                            placeholder="NDS Rate"
+                            name="ndsRate"
+                            items={items2}
+                            value={value2}
+                            onChange={handleFilterChange2}
+                            style={{maxWidth: '300px'}}
+                        />
+                    </div>
+                    <DatePicker
+                        placeholder="Date of Delivery"
+                        value={dateDelivery}
+                        onChange={handleDateChange}
+                        withClearButton
+                        style={{marginBottom: '10px'}}
+                    />
+                    <div>
+                        <div style={{marginTop: '10px'}}>
+                            <Button label="Save" view="primary" form="round" onClick={handleSave}
+                                    style={{marginRight: '20px'}}/>
+                            <Button label="Cancel" view="ghost" form="round" onClick={handleCancel}
+                                    style={{marginRight: '20px'}}/>
+                            <Button label="Delete" view="primary" form="round" onClick={handleDelete}/>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-    );
+    )
+        ;
 };
 
 export default EditLot;

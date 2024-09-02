@@ -162,6 +162,9 @@ const LotsPage: React.FC = () => {
 
     return (
         <div>
+            <Link to={`/`}>
+                <Button label="Home" view="secondary" style={{marginBottom: "20px"}}/>
+            </Link>
             <Text style={{textAlign: "center", marginTop: "20px"}}
                   view="brand" size="2xl" weight="semibold">Lots Table</Text>
             <div style={{display: "flex", justifyContent: "center", marginTop: "20px"}}>

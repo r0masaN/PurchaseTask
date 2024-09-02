@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {useParams, useNavigate} from "react-router-dom";
+import {useParams, useNavigate, Link} from "react-router-dom";
 import {Customer} from "../models/Customer.ts";
 import {Button} from "@consta/uikit/Button";
 import {Checkbox} from "@consta/uikit/Checkbox";
@@ -130,114 +130,119 @@ const EditCustomer: React.FC = () => {
     }
 
     return (
-        <div style={{
-            textAlign: "center",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            marginTop: "20px"
-        }}>
-            <Text view="brand" size="2xl" weight="semibold" style={{marginBottom: '10px'}}>Edit Customer</Text>
-            <form>
-                <div style={{marginBottom: '10px'}}>
-                    <TextField
-                        type="text"
-                        value={customer.customerCode}
-                        onChange={handleFieldChange('customerCode')}
-                        placeholder="Customer Code"
-                        style={{maxWidth: '300px'}}
-                        withClearButton
-                    />
-                </div>
-                <div style={{marginBottom: '10px'}}>
-                    <TextField
-                        type="text"
-                        value={customer.customerName}
-                        onChange={handleFieldChange('customerName')}
-                        placeholder="Customer Name"
-                        style={{maxWidth: '300px'}}
-                        withClearButton
-                    />
-                </div>
-                <div style={{marginBottom: '10px'}}>
-                    <TextField
-                        type="text"
-                        value={customer.customerInn}
-                        onChange={handleFieldChange('customerInn')}
-                        placeholder="Customer INN"
-                        style={{maxWidth: '300px'}}
-                        withClearButton
-                    />
-                </div>
-                <div style={{marginBottom: '10px'}}>
-                    <TextField
-                        type="text"
-                        value={customer.customerKpp}
-                        onChange={handleFieldChange('customerKpp')}
-                        placeholder="Customer KPP"
-                        style={{maxWidth: '300px'}}
-                        withClearButton
-                    />
-                </div>
-                <div style={{marginBottom: '10px'}}>
-                    <TextField
-                        type="text"
-                        value={customer.customerLegalAddress}
-                        onChange={handleFieldChange('customerLegalAddress')}
-                        placeholder="Customer Legal Address"
-                        style={{maxWidth: '300px'}}
-                        withClearButton
-                    />
-                </div>
-                <div style={{marginBottom: '10px'}}>
-                    <TextField
-                        type="text"
-                        value={customer.customerPostalAddress}
-                        onChange={handleFieldChange('customerPostalAddress')}
-                        placeholder="Customer Postal Address"
-                        style={{maxWidth: '300px'}}
-                        withClearButton
-                    />
-                </div>
-                <div style={{marginBottom: '10px'}}>
-                    <TextField
-                        type="text"
-                        value={customer.customerEmail}
-                        onChange={handleFieldChange('customerEmail')}
-                        placeholder="Customer Email"
-                        style={{maxWidth: '300px'}}
-                        withClearButton
-                    />
-                </div>
-                <div style={{marginBottom: '10px'}}>
-                    <Combobox
-                        placeholder="Customer Code Main"
-                        name="customerCodeMain"
-                        items={items}
-                        value={value}
-                        onChange={handleFilterChange}
-                        style={{maxWidth: '300px'}}
-                    />
-                </div>
-                <div style={{marginBottom: '10px'}}>
-                    <Checkbox label="Is Organization" name="isOrganization" checked={customer?.isOrganization || false}
-                              onChange={handleCheckboxChange}/>
-                </div>
-                <div style={{marginBottom: '10px'}}>
-                    <Checkbox label="Is Person" name="isPerson" checked={customer?.isPerson || false}
-                              onChange={handleCheckboxChange}/>
-                </div>
-                <div>
-                    <div style={{marginTop: '10px'}}>
-                        <Button label="Save" view="primary" form="round" onClick={handleSave}
-                                style={{marginRight: '20px'}}/>
-                        <Button label="Cancel" view="ghost" form="round" onClick={handleCancel}
-                                style={{marginRight: '20px'}}/>
-                        <Button label="Delete" view="primary" form="round" onClick={handleDelete}/>
+        <div>
+            <Link to={`/`}>
+                <Button label="Home" view="secondary" style={{marginBottom: "20px"}}/>
+            </Link>
+            <div style={{
+                textAlign: "center",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop: "20px"
+            }}>
+                <Text view="brand" size="2xl" weight="semibold" style={{marginBottom: '10px'}}>Edit Customer</Text>
+                <form>
+                    <div style={{marginBottom: '10px'}}>
+                        <TextField
+                            type="text"
+                            value={customer.customerCode}
+                            onChange={handleFieldChange('customerCode')}
+                            placeholder="Customer Code"
+                            style={{maxWidth: '300px'}}
+                            withClearButton
+                        />
                     </div>
-                </div>
-            </form>
+                    <div style={{marginBottom: '10px'}}>
+                        <TextField
+                            type="text"
+                            value={customer.customerName}
+                            onChange={handleFieldChange('customerName')}
+                            placeholder="Customer Name"
+                            style={{maxWidth: '300px'}}
+                            withClearButton
+                        />
+                    </div>
+                    <div style={{marginBottom: '10px'}}>
+                        <TextField
+                            type="text"
+                            value={customer.customerInn}
+                            onChange={handleFieldChange('customerInn')}
+                            placeholder="Customer INN"
+                            style={{maxWidth: '300px'}}
+                            withClearButton
+                        />
+                    </div>
+                    <div style={{marginBottom: '10px'}}>
+                        <TextField
+                            type="text"
+                            value={customer.customerKpp}
+                            onChange={handleFieldChange('customerKpp')}
+                            placeholder="Customer KPP"
+                            style={{maxWidth: '300px'}}
+                            withClearButton
+                        />
+                    </div>
+                    <div style={{marginBottom: '10px'}}>
+                        <TextField
+                            type="text"
+                            value={customer.customerLegalAddress}
+                            onChange={handleFieldChange('customerLegalAddress')}
+                            placeholder="Customer Legal Address"
+                            style={{maxWidth: '300px'}}
+                            withClearButton
+                        />
+                    </div>
+                    <div style={{marginBottom: '10px'}}>
+                        <TextField
+                            type="text"
+                            value={customer.customerPostalAddress}
+                            onChange={handleFieldChange('customerPostalAddress')}
+                            placeholder="Customer Postal Address"
+                            style={{maxWidth: '300px'}}
+                            withClearButton
+                        />
+                    </div>
+                    <div style={{marginBottom: '10px'}}>
+                        <TextField
+                            type="text"
+                            value={customer.customerEmail}
+                            onChange={handleFieldChange('customerEmail')}
+                            placeholder="Customer Email"
+                            style={{maxWidth: '300px'}}
+                            withClearButton
+                        />
+                    </div>
+                    <div style={{marginBottom: '10px'}}>
+                        <Combobox
+                            placeholder="Customer Code Main"
+                            name="customerCodeMain"
+                            items={items}
+                            value={value}
+                            onChange={handleFilterChange}
+                            style={{maxWidth: '300px'}}
+                        />
+                    </div>
+                    <div style={{marginBottom: '10px'}}>
+                        <Checkbox label="Is Organization" name="isOrganization" checked={customer?.isOrganization || false}
+                                  onChange={handleCheckboxChange}/>
+                    </div>
+                    <div style={{marginBottom: '10px'}}>
+                        <Checkbox label="Is Person" name="isPerson" checked={customer?.isPerson || false}
+                                  onChange={handleCheckboxChange}/>
+                    </div>
+                    <div>
+                        <div style={{marginTop: '10px'}}>
+                            <Button label="Save" view="primary" form="round" onClick={handleSave}
+                                    style={{marginRight: '20px'}}/>
+                            <Button label="Cancel" view="ghost" form="round" onClick={handleCancel}
+                                    style={{marginRight: '20px'}}/>
+                            <Button label="Delete" view="primary" form="round" onClick={handleDelete}/>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 };
