@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: r0masaN_1337
+    driver-class-name: org.postgresql.Driver
+
+jooq:
+  sql-dialect: POSTGRES
+  generate:
+    schema:
+      include: purchase
